@@ -10,7 +10,8 @@ st.set_page_config(
 st.title("📊 Karnataka State Cutoff Analysis")
 
 BASE_DIR = Path(__file__).resolve().parent
-DOCS_DIR = BASE_DIR / "Docs"
+ROOT_DIR = BASE_DIR.parent
+DOCS_DIR = ROOT_DIR / "Docs"
 
 @st.cache_data
 def load_state_data():

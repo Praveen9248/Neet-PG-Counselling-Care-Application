@@ -5,7 +5,8 @@ import altair as alt
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
-DOCS_DIR = BASE_DIR / "Docs"
+ROOT_DIR = BASE_DIR.parent
+DOCS_DIR = ROOT_DIR / "Docs"
 
 def load_data():
     @st.cache_data

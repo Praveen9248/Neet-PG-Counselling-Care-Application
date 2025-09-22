@@ -1,15 +1,17 @@
 import streamlit as st
-# Set page configuration, including a title and an icon.
+import os 
+
 st.set_page_config(
     page_title="NEET-PG Counselling Care",
     page_icon="⚕️", layout="wide"
 )
 
-# --- Title and Introduction ---
+
 st.title("NEET-PG Counselling Care: Your Trusted Guide 🩺")
 col1, col2= st.columns(2)
 with col1:
-    st.image("assets/banner.png",width=400)
+    filePath = os.path.join("assets","banner.png")
+    st.image(filePath,width=400)
 
 with col2:
     st.markdown("""
@@ -21,7 +23,7 @@ with col2:
         "your journey by providing accurate, data-driven insights and personalized guidance."
     )
 
-# --- Problem and Solution Section ---
+
 st.header("The Challenge of Counselling")
 st.write(
     "Every year, thousands of students face the daunting task of analyzing vast amounts of data "
@@ -30,7 +32,7 @@ st.write(
     "Small mistakes can have a significant impact on your future."
 )
 
-# --- Features Section (using columns for a clean look) ---
+
 st.header("How We Help You Succeed")
 
 col1, col2, col3 = st.columns(3)

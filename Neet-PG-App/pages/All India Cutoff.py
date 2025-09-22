@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import os
 
 st.set_page_config(
     page_title="NEET-PG Counselling Care",
@@ -10,7 +11,8 @@ st.title("🌍 All India Cutoff Analysis")
 
 @st.cache_data
 def load_all_india_data():
-    return pd.read_csv("Docs/aicutoff.csv")
+    filePath = os.path.join("Docs","aicutoff.csv")
+    return pd.read_csv(filePath)
 
 df = load_all_india_data()
 st.write("### All India Cutoff Data")

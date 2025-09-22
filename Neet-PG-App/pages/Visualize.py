@@ -2,11 +2,13 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import altair as alt
+import os 
 
 def load_data():
     @st.cache_data
     def get_data():
-        df = pd.read_csv("Docs/aicutoff.csv")
+        filePath = os.path.join("Docs","aicutoff.csv")
+        df = pd.read_csv(filePath)
         df.columns = df.columns.str.strip()
         df = df.rename(columns={'Allotted Institute': 'Allotted_Institute', 'Exam year': 'Exam_year', 'Allotted Quota': 'Allotted_Quota', 'Round': 'Round'})
         return df

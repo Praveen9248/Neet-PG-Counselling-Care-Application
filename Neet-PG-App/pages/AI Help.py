@@ -1,16 +1,14 @@
 import streamlit as st
 import google.generativeai as genai
 import time
-from dotenv import load_dotenv
-import os
 
 st.set_page_config(
     page_title="NEET-PG Counselling Care",
     page_icon="⚕️", layout="wide"
 )
 
-load_dotenv()
-api_key = os.environ.get("GOOGLE_API_KEY", "")
+# 🔑 Access API key from secrets
+api_key = st.secrets["api_keys"]["google"]
 
 if api_key:
     genai.configure(api_key=api_key)

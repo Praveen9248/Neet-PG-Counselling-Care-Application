@@ -1,17 +1,18 @@
 import streamlit as st
-import os 
+from pathlib import Path
 
 st.set_page_config(
     page_title="NEET-PG Counselling Care",
     page_icon="⚕️", layout="wide"
 )
 
+BASE_DIR = Path(__file__).resolve().parent
+ASSETS_DIR = BASE_DIR / "assets"
 
 st.title("NEET-PG Counselling Care: Your Trusted Guide 🩺")
 col1, col2= st.columns(2)
 with col1:
-    filePath = os.path.join("assets","banner.png")
-    st.image(filePath,width=400)
+    st.image(ASSETS_DIR / "banner.png", width=400)
 
 with col2:
     st.markdown("""

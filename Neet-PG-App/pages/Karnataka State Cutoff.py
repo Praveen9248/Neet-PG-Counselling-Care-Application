@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
-import os
+from pathlib import Path
+
 st.set_page_config(
     page_title="NEET-PG Counselling Care",
     page_icon="⚕️", layout="wide"
@@ -8,10 +9,12 @@ st.set_page_config(
 
 st.title("📊 Karnataka State Cutoff Analysis")
 
+BASE_DIR = Path(__file__).resolve().parent
+DOCS_DIR = BASE_DIR / "Docs"
+
 @st.cache_data
 def load_state_data():
-    filePath = os.path.join("Docs","state2024cutoff.csv")
-    return pd.read_csv(filePath)
+    return pd.read_csv(DOCS_DIR / "state2024cutoff.csv")
 
 df = load_state_data()
 st.write("### State Cutoff Data")

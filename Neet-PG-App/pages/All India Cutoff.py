@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import os
+from pathlib import Path
 
 st.set_page_config(
     page_title="NEET-PG Counselling Care",
@@ -9,10 +9,12 @@ st.set_page_config(
 
 st.title("🌍 All India Cutoff Analysis")
 
+BASE_DIR = Path(__file__).resolve().parent
+DOCS_DIR = BASE_DIR / "Docs"
+
 @st.cache_data
 def load_all_india_data():
-    filePath = os.path.join("Docs","aicutoff.csv")
-    return pd.read_csv(filePath)
+    return pd.read_csv(DOCS_DIR / "aicutoff.csv")
 
 df = load_all_india_data()
 st.write("### All India Cutoff Data")
